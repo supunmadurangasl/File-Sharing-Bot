@@ -40,11 +40,11 @@ async def start_command(client: Client, message: Message):
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except:
                 return
-        temp_msg = await message.reply("Please wait...")
+        temp_msg = await message.reply(" 📥 Please wait...")
         try:
             messages = await get_messages(client, ids)
         except:
-            await message.reply_text("Something went wrong..!")
+            await message.reply_text(" 😐 Something went wrong..!")
             return
         await temp_msg.delete()
 
@@ -73,8 +73,8 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton(" 🔥 About Me 🔥", callback_data = "about"),
+                    InlineKeyboardButton("❌Close❌", callback_data = "close")
                 ]
             ]
         )
@@ -101,7 +101,7 @@ async def not_joined(client: Client, message: Message):
         text = text + f" <b>and <a href='https://t.me/{client.username}?start={argument}'>try again</a></b>"
     except ValueError:
         pass
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Channel", url = client.invitelink)]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("♻️ Join Channel ♻️", url = client.invitelink)]])
     await message.reply(
         text = text,
         reply_markup = reply_markup,
